@@ -2,7 +2,7 @@ esphome:
   name: $mdns_name
   platform: ESP8266
   board: $board
-  comment: "https://github.com/Anonym-tsk/smart-domofon/tree/master/ge1mer"
+  comment: "https://github.com/Ge1mer/domofondigi"
   esp8266_restore_from_flash: true
   on_boot:
     priority: -100
@@ -82,3 +82,5 @@ text_sensor:
       }
     update_interval: 60s
     icon: mdi:clock-start    
+  - platform: version
+    name: ${board_name}_firmware_version

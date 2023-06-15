@@ -11,15 +11,15 @@ substitutions:
   pin_btn_accept: GPIO0
 
   # Board name
-  board_name: "Domofondig"
-  mdns_name: "domofondig"
+  board_name: "Domofon"
+  mdns_name: "domofon"
 
   # Relays configuration
   phone_relay_inverted: 'false'  # Set to 'false' if you have NO phone relay
 
   # Wifi credentials
-  wifi_ssid: "Qadro"
-  wifi_password: "0987654321"
+  wifi_ssid: !secret wifi
+  wifi_password: !secret wifi_pass
   ap_ssid: "Domofon"
   ap_password: "1234567890"
 
@@ -31,27 +31,27 @@ substitutions:
 
   # OTA and API
   ota_password: "esphome"
-  api_password: "esphome"
+  api_key: !secret api_key
 
   # Software configuration
-  call_end_detect_delay: 6000ms     # Interval between rings to detect incoming call
-  relay_before_answer_delay: 400ms  # Delay before answer call
-  relay_answer_on_time: 5000ms      # Delay between answer call and open/close door
-  relay_open_on_time: 500ms         # How long the "open door button" will be pressed
-  relay_after_open_delay: 2000ms     # Delay in "answer" state after opening door
-  short_click_time_from: 50ms       # Short button click min time
-  short_click_time_to: 1000ms       # Long button click min time
+  call_end_detect_delay: 8000ms     # Interval between rings to detect incoming call
+#  relay_before_answer_delay: 400ms  # Delay before answer call
+#  relay_answer_on_time: 3000ms      # Delay between answer call and open/close door
+#  relay_open_on_time: 4000ms         # How long the "open door button" will be pressed
+#  relay_after_open_delay: 3000ms     # Delay in "answer" state after opening door
+  short_click_time_from: 50ms       # Short button click min time 
+  short_click_time_to: 1000ms       # Long button click min time 
 
 
 ########### End user configuration ###########
 
 packages:
-  base: !include domofondig_packages/base.yaml
-  api: !include domofondig_packages/api.yaml
+  base: !include domofon_packages/base.yaml
+  api: !include domofon_packages/api.yaml
   #mqtt: !include domofon_packages/mqtt.yaml
-  number: !include domofondig_packages/number.yaml
-  script: !include domofondig_packages/script.yaml
-  output: !include domofondig_packages/output.yaml
-  switch: !include domofondig_packages/switch.yaml
-  light: !include domofondig_packages/light.yaml
-  binary_sensor: !include domofondig_packages/binary_sensor.yaml
+  number: !include domofon_packages/number.yaml
+  script: !include domofon_packages/script.yaml
+  output: !include domofon_packages/output.yaml
+  switch: !include domofon_packages/switch.yaml
+  light: !include domofon_packages/light.yaml
+  binary_sensor: !include domofon_packages/binary_sensor.yaml

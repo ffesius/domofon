@@ -18,3 +18,51 @@ number:
             light.control:
               id: rgb_led
               brightness: !lambda "return x > 0 ? x / 10 : 0.01;"
+
+    # Delay before answer call
+  - platform: template
+    icon: "mdi:timer-outline"
+    name: ${board_name} Relay before answer delay
+    id: relay_before_answer_delay
+    optimistic: true
+    restore_value: true
+    initial_value: 500
+    min_value: 0
+    max_value: 10000
+    step: 1
+
+    # Delay between answer call and open/close door
+  - platform: template
+    icon: "mdi:timer-outline"
+    name: ${board_name} Relay answer ON time
+    id: relay_answer_on_time
+    optimistic: true
+    restore_value: true
+    initial_value: 4000
+    min_value: 0
+    max_value: 10000
+    step: 1
+
+    # How long the "open door button" will be pressed
+  - platform: template
+    icon: "mdi:timer-outline"
+    name: ${board_name} Relay open ON time
+    id: relay_open_on_time
+    optimistic: true
+    restore_value: true
+    initial_value: 4000
+    min_value: 0
+    max_value: 10000
+    step: 1
+
+    # Delay in "answer" state after opening door
+  - platform: template
+    icon: "mdi:timer-outline"
+    name: ${board_name} Relay after open delay
+    id: relay_after_open_delay
+    optimistic: true
+    restore_value: true
+    initial_value: 4000
+    min_value: 0
+    max_value: 10000
+    step: 1
